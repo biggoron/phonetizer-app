@@ -1,2 +1,2 @@
-# phonetizer-app
-GCP App Engine App to serve phonetizer as an API service
+# Phonetizer App
+Serves the phonetizer-fr-dan package on a GCP App Engine
