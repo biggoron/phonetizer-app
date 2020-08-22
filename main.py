@@ -1,5 +1,7 @@
 # [START gae_python38_app]
 from flask import Flask
+from phonetizer import sentence_to_phonem
+from phonetizer.utils.lexicon import load_lexicon
 
 
 # If `entrypoint` is not defined in app.yaml, App Engine will look for an app
@@ -7,10 +9,10 @@ from flask import Flask
 app = Flask(__name__)
 
 
-@app.route('/')
-def hello():
+@app.route('/<sentence>')
+def hello(sentence):
     """Return a friendly HTTP greeting."""
-    return 'Hello World!'
+    return sentence_to_phonem(sentence.replace('_', ' '), load_lexicon())
 
 
 if __name__ == '__main__':
